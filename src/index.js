@@ -23,7 +23,7 @@ const dbOptions= {
 
 const connectionsql=mysql.createConnection({
     host: 'localhost',
-    database: 'mydb',
+    database: 'test3',
     user: 'root',
     password: '',
 })
