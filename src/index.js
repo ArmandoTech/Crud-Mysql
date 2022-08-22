@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'))
 const dbOptions= {
     host: 'localhost',
     user: 'root',
-    password: 'armando2001uis',
+    password: '',
     port: 3306,
     database: 'mydb'
 }
