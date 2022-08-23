@@ -3,37 +3,41 @@ const express= require('express')
 const path= require('path')
 const morgan= require('morgan')
 const mysql= require('mysql')
+const myConnection= require('express-myconnection')
 
 //importing routes
 const customerRoutes= require('./routes/customer.js') 
 
+//creating an instance of express
 const app= express()
 
 //settings
 app.set('port', process.env.PORT || 3000)
-app.set('views engine', 'ejs')
+app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 //settings for connection to database
-const connectionsql=mysql.createConnection({
+const dbOptions= {
     host: 'localhost',
     database: 'test3',
     user: 'root',
     password: '',
-})
+}
+// const connectionsql=mysql.createConnection({
+//     host: 'localhost',
+//     database: 'test3',
+//     user: 'root',
+//     password: '',
+// })
 
 //connection to database
-connectionsql.connect(err => {
-    if (err) {
-        console.log("Connection error " + err.stack)
-        return
-    } else {
-        console.log("Connection completed")
-    }
-})
+app.use(myConnection(mysql, dbOptions, 'single'))
 
 //middlewares
 app.use(morgan('dev'))
+
+//routes
+app.use('/', customerRoutes)
 
 //server
 app.listen(app.get('port'), () => {
