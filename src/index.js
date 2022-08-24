@@ -35,6 +35,7 @@ app.use(myConnection(mysql, dbOptions, 'single'))
 
 //middlewares
 app.use(morgan('dev'))
+app.use(express.urlencoded({extended:false}))
 
 //routes
 app.use('/', customerRoutes)
