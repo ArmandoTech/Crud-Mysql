@@ -23,6 +23,8 @@
 
                                 <td>
                                     <a href="/delete/<%= data[i].id%>" class="btn btn-danger">DELETE</a>
+                                    <a href="/update/<%= data[i].id%>" class="btn btn-info">UPDATE</a>
+
                                 </td>
                             </tr>
                         <% } %>  
@@ -48,6 +50,7 @@
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Save customer</button>
+                        
                     </form>
                 </div>
             </div>

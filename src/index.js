@@ -23,12 +23,6 @@ const dbOptions= {
     user: 'root',
     password: '',
 }
-// const connectionsql=mysql.createConnection({
-//     host: 'localhost',
-//     database: 'test3',
-//     user: 'root',
-//     password: '',
-// })
 
 //connection to database
 app.use(myConnection(mysql, dbOptions, 'single'))
